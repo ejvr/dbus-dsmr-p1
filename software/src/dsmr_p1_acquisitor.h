@@ -51,6 +51,8 @@ private:
 
     static double getDouble(const QString &payLoad);
 
+    static QString fromHexString(const QString &hexString);
+
     QIODevice *mIoDevice;
     QTimer *mTimer;
     QScopedPointer<DsmrP1Parser> mParser;

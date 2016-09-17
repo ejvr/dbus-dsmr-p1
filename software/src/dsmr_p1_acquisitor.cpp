@@ -126,7 +126,7 @@ void DsmrP1Acquisitor::handleMessage(const DsmrP1Message &msg)
                         switch (obisProcessing)
                         {
                         case 1:
-                            produce(mSerial, payload);
+                            produce(mSerial, fromHexString(payload).trimmed());
                             break;
                         case 14:
                             // Tariff, 1 = Low, 2 = Normal (?)
@@ -305,4 +305,15 @@ double DsmrP1Acquisitor::getDouble(const QString &payLoad)
     if (i == -1)
         return payLoad.toDouble();
     return payLoad.leftRef(i).toDouble();
+}
+
+QString DsmrP1Acquisitor::fromHexString(const QString &hexString)
+{
+    QString result;
+    result.reserve(hexString.length() / 2);
+    for (int i=0; i<hexString.length(); i+=2) {
+        int v = hexString.midRef(i, 2).toInt(0, 16);
+        result += QChar(v);
+    }
+    return result;
 }
