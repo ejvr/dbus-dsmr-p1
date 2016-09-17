@@ -5,7 +5,7 @@
 #include "dsmr_p1_acquisitor.h"
 #include "dsmr_p1_parser.h"
 
-static const QString ServiceName = "com.victronenergy.gridmeter";
+static const QString ServiceName = "com.victronenergy.grid";
 static const int UsbDeviceInstance = 288;
 
 DsmrP1Acquisitor::DsmrP1Acquisitor(const QString &portName, VeQItem *root, QObject *parent):
