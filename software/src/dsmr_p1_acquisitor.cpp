@@ -260,12 +260,12 @@ void DsmrP1Acquisitor::initService(const QString &serviceName)
     mProductName = service->itemGetOrCreate("ProductName");
     mSerial = service->itemGetOrCreate("Serial");
     mPower = service->itemGetOrCreate("Ac/Power");
-    mEnergyForward = service->itemGetOrCreate("Ac/EnergyForward");
-    mEnergyReverse = service->itemGetOrCreate("Ac/EnergyReverse");
+    mEnergyForward = service->itemGetOrCreate("Ac/Energy/Forward");
+    mEnergyReverse = service->itemGetOrCreate("Ac/Energy/Reverse");
     mL1Power = service->itemGetOrCreate("Ac/L1/Power");
     mL1Current = service->itemGetOrCreate("Ac/L1/Current");
-    mL1EnergyForward = service->itemGetOrCreate("Ac/L1/EnergyForward");
-    mL1EnergyReverse = service->itemGetOrCreate("Ac/L1/EnergyReverse");
+    mL1EnergyForward = service->itemGetOrCreate("Ac/L1/Energy/Forward");
+    mL1EnergyReverse = service->itemGetOrCreate("Ac/L1/Energy/Reverse");
 }
 
 void DsmrP1Acquisitor::produce(VeQItem *item, const QVariant &value, const QString &text)
