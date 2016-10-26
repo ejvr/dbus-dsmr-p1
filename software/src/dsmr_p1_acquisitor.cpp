@@ -22,6 +22,7 @@ DsmrP1Acquisitor::DsmrP1Acquisitor(const QString &portName, VeQItem *root, QObje
     serialPort->setDataBits(QSerialPort::Data8);
     serialPort->setParity(QSerialPort::NoParity);
     serialPort->setStopBits(QSerialPort::OneStop);
+    serialPort->setRequestToSend(true);
     connect(serialPort, SIGNAL(readyRead()), this, SLOT(onReadyRead()));
     connect(serialPort, SIGNAL(error(QSerialPort::SerialPortError)),
             this, SLOT(onError(QSerialPort::SerialPortError)));
